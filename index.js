@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 3001;
 // Middleware to parse incoming requests
 app.use(bodyParser.json());
 
+app.get('/', (req,res)=>{
+    res.send('Hello World')
+})
+
 // Route for Telegram Webhook
 app.post('/telegram-webhook', (req, res) => {
   const message = req.body.message;
