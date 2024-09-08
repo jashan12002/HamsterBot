@@ -50,10 +50,9 @@ app.post('/telegram-webhook', async (req, res) => {
     // If the user is on a desktop, send a QR code to scan:
     if (message.from && message.from.is_bot === false) { // Simple check for non-bot users
       res.send({
-        method: 'sendPhoto',
-        chat_id: message.chat.id,
-        photo: qrCodeUrl, // The QR code image generated
-        caption: 'Scan this QR code on your mobile device to play the game.'
+        method: 'sendMessage',
+      chat_id: message.chat.id,
+      text: `Play on mobile phone`,
       });
     }
 
